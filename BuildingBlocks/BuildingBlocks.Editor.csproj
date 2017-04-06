@@ -132,6 +132,7 @@
     <None Include="Assets\Vuforia\license_3rdpartynotice.txt" />
     <None Include="Assets\Vuforia\link.xml" />
     <None Include="Assets\Vuforia\readme_SDK.txt" />
+    <None Include="Assets\grid.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

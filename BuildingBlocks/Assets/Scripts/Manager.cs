@@ -2,6 +2,15 @@
 using System.Collections;
 using System;
 
+public enum Blockcolor
+{
+    White =0,
+    Red = 1,
+    Green = 2,
+    Blue = 3,
+    Black = 4
+}
+
 public class Block
 {
 
@@ -18,6 +27,9 @@ public class Manager : MonoBehaviour
     public Block[,,] blocks = new Block[20, 20, 20];
     public GameObject blockPrefab;
 
+    public Blockcolor selectedColour;
+    public Material[] blockMaterial;
+
     private GameObject FoundationObject;
     private Vector3 blockOffset; 
     private Vector3 FoundationCenter = new Vector3(1.25f, 0, 1.25f);
@@ -28,6 +40,7 @@ public class Manager : MonoBehaviour
 
         FoundationObject = GameObject.Find("Foundation");
         blockOffset = (Vector3.one * 0.5f) / 4;
+        selectedColour = Blockcolor.White;
 
     }
     private void Update()
@@ -50,7 +63,7 @@ public class Manager : MonoBehaviour
 
                 if (blocks[x, y, z] == null)
                 {
-                    GameObject go = Instantiate(blockPrefab) as GameObject;
+                    GameObject go = CreateBlock();
                     go.transform.localScale = Vector3.one * blockSize;
                     PositionBlock(go.transform, index);
                     blocks[x, y, z] = new Block
@@ -61,7 +74,7 @@ public class Manager : MonoBehaviour
 
                 else
                 {
-                    GameObject go = Instantiate(blockPrefab) as GameObject;
+                    GameObject go = CreateBlock();
                     go.transform.localScale = Vector3.one * blockSize;
                     Vector3 newIndex = BlockPosition(hit.point + hit.normal * blockSize);
                     PositionBlock(go.transform, newIndex);
@@ -70,6 +83,14 @@ public class Manager : MonoBehaviour
         }
     }
 
+
+    private GameObject CreateBlock()
+    {
+        GameObject go = Instantiate(blockPrefab) as GameObject;
+        go.GetComponent<Renderer>().material = blockMaterial[(int)selectedColour];
+        return go;
+
+    }
     private Vector3 BlockPosition(Vector3 hit)
     {
 
@@ -95,4 +116,21 @@ public class Manager : MonoBehaviour
         t.position = ((index * blockSize) + blockOffset ) + (FoundationObject.transform.position - FoundationCenter);
 
     }
+
+    public void ChangeBlockColor(int color)
+    {
+        selectedColour = (Blockcolor)color;
+        /*switch(c)
+        {
+            case Blockcolor.White:
+                break;
+            case Blockcolor.Red:
+                break;
+            case Blockcolor.Green:
+                break;
+            case Blockcolor.Blue:
+                break;
+        } */
+    }
+
 }

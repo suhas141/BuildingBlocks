@@ -29,8 +29,6 @@ public class Manager : MonoBehaviour
         FoundationObject = GameObject.Find("Foundation");
         blockOffset = (Vector3.one * 0.5f) / 4;
 
-
-
     }
     private void Update()
     {
@@ -95,5 +93,6 @@ public class Manager : MonoBehaviour
     private void PositionBlock(Transform t, Vector3 index)
     {
         t.position = ((index * blockSize) + blockOffset ) + (FoundationObject.transform.position - FoundationCenter);
+
     }
 }

@@ -66,15 +66,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChangeSceen.cs" />
-    <Compile Include="Assets\Scripts\BlockMesh1.cs" />
+    <Compile Include="Assets\Scripts\ChangeSceen.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
-    <Compile Include="Assets\Scripts\NavPlayerScript.cs" />
+    <Compile Include="Assets\Scripts\Quitfun.cs" />
     <Compile Include="Assets\Scripts\RandomGenerator.cs" />
-    <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UIchangeblockmanager.cs" />
-    <Compile Include="Assets\Scripts\Unit.cs" />
-    <Compile Include="Assets\Scripts\UnitPlayer.cs" />
+    <Compile Include="Assets\Touch.cs" />
     <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -114,7 +110,6 @@
   <ItemGroup>
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\iOS\Vuforia.UnityExtensions.iOS.XML" />
-    <None Include="Assets\Scripts\grid.shader" />
     <None Include="Assets\StreamingAssets\QCAR\Block_Building.xml" />
     <None Include="Assets\Vuforia\Editor\Scripts\Vuforia.UnityExtensions.Editor.XML" />
     <None Include="Assets\Vuforia\Editor\WebcamProfiles\profiles.xml" />

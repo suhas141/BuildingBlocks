@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public enum Blockcolor
+public enum BackTexture
 {
     White =0,
     Red = 1,
@@ -27,7 +27,7 @@ public class Manager : MonoBehaviour
     public Block[,,] blocks = new Block[20, 20, 20];
     public GameObject blockPrefab;
 
-    public Blockcolor selectedColour;
+    public BackTexture selectedColour;
     public Material[] blockMaterial;
 
     private GameObject FoundationObject;
@@ -38,9 +38,9 @@ public class Manager : MonoBehaviour
     private void Start()
     {
 
-        FoundationObject = GameObject.Find("Foundation");
+        FoundationObject = GameObject.Find("BasePlane");
         blockOffset = (Vector3.one * 0.5f) / 4;
-        selectedColour = Blockcolor.White;
+        selectedColour = BackTexture.White;
 
     }
     private void Update()
@@ -117,18 +117,18 @@ public class Manager : MonoBehaviour
 
     }
 
-    public void ChangeBlockColor(int color)
+    public void ChangeBackTexture(int color)
     {
-        selectedColour = (Blockcolor)color;
+        selectedColour = (BackTexture)color;
         /*switch(c)
         {
-            case Blockcolor.White:
+            case BackTexture.White:
                 break;
-            case Blockcolor.Red:
+            case BackTexture.Red:
                 break;
-            case Blockcolor.Green:
+            case BackTexture.Green:
                 break;
-            case Blockcolor.Blue:
+            case BackTexture.Blue:
                 break;
         } */
     }
